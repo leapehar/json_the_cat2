@@ -18,7 +18,7 @@ const fetchBreedDescription = function(breedName, callback) {
   // making a GET request to the API endpoint 
   request(endpoint, (error, response, body) => {
 
-    // Edge Case: Request Failed
+
     // if there is something wrong with the request:
     // calling the callback function (in fetchBreedDescription function call in index.js)
     // since no value is passed to the error variable, the error variable will take on the error value that results from the failed AIP request
@@ -41,13 +41,11 @@ const fetchBreedDescription = function(breedName, callback) {
     if (desc) {
       return callback(error, desc.description);
     } else {
-      // if desc evaluates to false, calling the callback function (in fetchBreedDescription function call in index.js) with "No breed found" passed into the error parameter
+      // if desc evaluates to false 
+      //calling the callback function (in fetchBreedDescription function call in index.js) with "No breed found" passed into the error parameter
       //returning whatever the callback evalutes to 
       return callback("No breed found")
     }
-
-    // console logging the breed description
-    // console.log(`${breed} Cat Description: ${description}`);
   });
 
 };
