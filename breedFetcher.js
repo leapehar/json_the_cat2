@@ -31,13 +31,6 @@ const fetchBreedDescription = function(breedName, callback) {
     // JSON.parse() is taking the data that was retrived by the API GET request and converting it from raw JSON into an actual object.
     const data = JSON.parse(body);
 
-    // Edge Case: Breed Not Found
-    // Checking the character length of the data retrived by the API GET request
-    // if no date is retrived, console logging 'breed not found'
-    // if (data.length < 1) {
-    //   // console.log('breed not found')
-    //   return callback(error, null);
-    // };
 
     // declaring desc variable and setting its value to the first index of the array retrived by the API GET request.
     const desc = data[0];
