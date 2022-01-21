@@ -15,7 +15,7 @@ const fetchBreedDescription = function(breedName, callback) {
   if (!breedName) {
     return callback("Please enter breed name");
   }
-  // making a GET request to the API endpoint 
+  // making a GET request to the API endpoint
   request(endpoint, (error, response, body) => {
 
 
@@ -25,7 +25,7 @@ const fetchBreedDescription = function(breedName, callback) {
     // returning whatever the callback function evaluates to
     if (error) {
       return callback(error, body);
-    };
+    }
 
     // declaring data variable and getting its value to JSON.parse(body)
     // JSON.parse() is taking the data that was retrived by the API GET request and converting it from raw JSON into an actual object.
@@ -35,20 +35,20 @@ const fetchBreedDescription = function(breedName, callback) {
     // declaring desc variable and setting its value to the first index of the array retrived by the API GET request.
     const desc = data[0];
 
-    // checking if desc exists by checking if it evaluates to true 
+    // checking if desc exists by checking if it evaluates to true
     // if desc evaluated to true, calling the callback function (in fetchBreedDescription function call in index.js) with the description property on desc(which is the object at the first index of the array retrived by the API GET request)
     //returning what the callback evaluates to, ie. the breed description
     if (desc) {
       return callback(error, desc.description);
     } else {
-      // if desc evaluates to false 
+      // if desc evaluates to false
       //calling the callback function (in fetchBreedDescription function call in index.js) with "No breed found" passed into the error parameter
-      //returning whatever the callback evalutes to 
-      return callback("No breed found")
+      //returning whatever the callback evalutes to
+      return callback("No breed found");
     }
   });
 
 };
 
-// exporting fetchBreedDescription function 
+// exporting fetchBreedDescription function
 module.exports = {fetchBreedDescription};
